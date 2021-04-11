@@ -1,0 +1,71 @@
+<! DOCTYPE html>
+<html lang = "{{site.lang | 기본값 :"en-US "}}">
+  <헤드>
+    <메타 문자셋 = 'utf-8'>
+    <meta http-equiv = "X-UA-Compatible"content = "IE = edge">
+    <meta name = "viewport"content = "width = device-width, initial-scale = 1, maximum-scale = 1">
+    <link rel = "stylesheet"href = "{{ '/assets/css/style.css?v='| append : site.github.build_revision | relative_url}}"media = "screen"type = "text / css" >
+    <link rel = "stylesheet"href = "{{ '/assets/css/print.css'| relative_url}}"media = "print"type = "text / css">
+
+    <!-[IE 9 인 경우]>
+    <script src = "https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"> </ script>
+    <! [endif]->
+
+{% 현서 %}
+  </ head>
+
+  <본체>
+    <헤더>
+      <div class = "inner">
+        <a href="{{ '/' | absolute_url }}">
+          <h1> {{site.title | 기본값 : site.github.repository_name}} </ h1>
+        </a>
+        <h2> {{site.description | 기본값 : site.github.project_tagline}} </ h2>
+        {% if site.github.is_project_page %}
+          <a href="{{ site.github.repository_url }}" class="button"> <small> GitHub에서 </ small> 프로젝트보기 </a>
+        {% endif %}
+        {% if site.github.is_user_page %}
+          <a href="{{ site.github.owner_url }}" class="button"> <small> 팔로우 </ small> GitHub </a>
+        {% endif %}
+      </ div>
+    </ 헤더>
+
+    <div id = "content-wrapper">
+      <div class = "inner clearfix">
+        <section id = "main-content">
+          {{콘텐츠}}
+        </ 섹션>
+
+        <aside id = "sidebar">
+          {% if site.show_downloads %}
+            <a href="{{ site.github.zip_url }}" class="button">
+              <small> 다운로드 </ small>
+              .압축 파일
+            </a>
+            <a href="{{ site.github.tar_url }}" class="button">
+              <small> 다운로드 </ small>
+              .tar.gz 파일
+            </a>
+          {% endif %}
+
+          {% if site.github.is_project_page %}
+            <p class = "repo-owner"> <a href="{{ site.github.repository_url }}"> {{site.github.repository_name}} </a>은 (는) <a href = "{{사이트에서 관리합니다. .github.owner_url}} "> {{site.github.owner_name}} </a>. </ p>
+          {% endif %}
+
+          <p>이 페이지는 <a href="https://pages.github.com"> GitHub 페이지 </a>에서 생성되었습니다. </ p>
+        </ aside>
+      </ div>
+    </ div>
+
+    {% if site.google_analytics %}
+      <스크립트>
+        (함수 (i, s, o, g, r, a, m) {i [ 'GoogleAnalyticsObject'] = r; i [r] = i [r] || function () {
+        (i [r] .q = i [r] .q || []). push (인수)}, i [r] .l = 1 * new Date (); a = s.createElement (o),
+        m = s.getElementsByTagName (o) [0]; a.async = 1; a.src = g; m.parentNode.insertBefore (a, m)
+        }) (window, document, 'script', '// www.google-analytics.com/analytics.js','ga');
+        ga ( 'create', '{{site.google_analytics}}', 'auto');
+        ga ( 'send', 'pageview');
+      </ script>
+    {% endif %}
+  </ body>
+</ html>
